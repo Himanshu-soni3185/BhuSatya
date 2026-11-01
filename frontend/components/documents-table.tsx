@@ -78,35 +78,11 @@ export function DocumentsTable({
 
   return (
     <section className="rounded-lg border bg-card shadow-sm" aria-label={title ?? 'Documents'}>
-      <header className="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3">
+      <header className="flex items-center justify-between gap-3 border-b px-4 py-3">
         <div>
           {title ? <h2 className="text-sm font-semibold text-foreground">{title}</h2> : null}
           {displayCaption ? <p className="text-xs text-muted-foreground">{displayCaption}</p> : null}
         </div>
-        {showFilters ? (
-          <div
-            role="group"
-            aria-label="Filter by status"
-            className="flex rounded-md border bg-muted p-0.5"
-          >
-            {filters.map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                aria-pressed={filter === f.id}
-                onClick={() => setFilter(f.id)}
-                className={cn(
-                  'rounded-[3px] px-2.5 py-1 text-xs font-medium transition-colors',
-                  filter === f.id
-                    ? 'bg-card text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground',
-                )}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-        ) : null}
       </header>
 
       <div className="overflow-x-auto">
